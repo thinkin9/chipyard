@@ -120,12 +120,12 @@ class TutorialNoCConfig extends Config(
 // Tutorial Phase 6: Gemmini Config
 class TutorialLeanGemminiConfig extends Config(
   // Step 1: Customize gemmini - set a config option for the accelerator: use_dedicated_tl_port=false
-  new gemmini.DefaultGemminiConfig(gemmini.GemminiConfigs.leanConfig.copy(use_dedicated_tl_port=true )) ++
+  new gemmini.DefaultGemminiConfig(gemmini.GemminiConfigs.leanConfig.copy(use_dedicated_tl_port=false )) ++
 
   // Step 2: Specify some number of Rocket + Boom cores
   //         For this step, the total number of Rocket + Boom cores should <= 8
-  new boom.common.WithNMediumBooms(1) ++
-  new freechips.rocketchip.subsystem.WithNBigCores(3) ++
+  new boom.common.WithNMediumBooms(2) ++
+  new freechips.rocketchip.subsystem.WithNBigCores(2) ++
 
   // : Some number of L2 cache banks (keep this <= 4 as well)
   new freechips.rocketchip.subsystem.WithNBanks(4) ++
